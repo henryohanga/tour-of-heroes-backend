@@ -8,6 +8,8 @@
 
 Yii2 Rest Basic Project Template is a skeleton [Yii2 Rest](http://github.com/particlesdevelopers/yii2-rest-basic) application best for
 rapidly creating small Restful projects.
+
+
 DIRECTORY STRUCTURE
 -------------------
 
@@ -47,6 +49,11 @@ Set cookie validation key in `config/web.php` file to some random secret string:
     // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
     'cookieValidationKey' => '<secret random string goes here>',
 ],
+```
+Update the dependencies by running
+
+```
+composer upate
 ```
 
 You can then access the application through the following URL:
