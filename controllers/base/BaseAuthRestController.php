@@ -5,16 +5,17 @@
 
 namespace app\controllers\base;
 
-use yii\rest\Controller;
+use app\controllers\base\BaseRestController as Controller;
 use app\filters\auth\ApiUserAuth;
 
 /**
- * BaseRestController is a base controller class for rest controllers
+ * BaseAuthRestController is a base controller class for rest controllers 
+ * that require authentication
  * 
  * @author Henry Ohanga <ohanga.henry@gmail.com>
  * @since 1.0
  */
-class BaseRestController extends Controller
+class BaseAuthRestController extends Controller
 {
     /**
      * @inheritdoc
@@ -22,6 +23,10 @@ class BaseRestController extends Controller
     public function behaviors()
     {
         $behaviors = parent::behaviors();
+
+        $behaviors['authenticator'] = [
+            'class' => ApiUserAuth::className(),
+        ];
 
         // remove authentication filter
         $auth = $behaviors['authenticator'];
