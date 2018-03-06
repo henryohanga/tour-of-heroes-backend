@@ -20,5 +20,13 @@ class SiteController extends BaseRestController
         }
     }
 
-    
+    /**
+     * /site/index
+     */
+    public function actionIndex()
+    {
+        return [
+            'message' => 'Hello World!',
+        ];
+    }
 }
