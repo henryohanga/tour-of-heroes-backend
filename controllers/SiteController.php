@@ -3,11 +3,11 @@
 namespace app\controllers;
 
 use Yii;
-use app\controllers\base\BaseRestController;
+use app\controllers\base\BaseAuthRestController;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 
-class SiteController extends BaseRestController
+class SiteController extends BaseAuthRestController
 {
     /**
      *  Error handler action

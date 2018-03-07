@@ -6,6 +6,7 @@
 
  namespace app\filters\auth;
 
+ use Yii;
  use yii\filters\auth\AuthMethod;
 
  /**
@@ -47,6 +48,8 @@ class ApiUserAuth extends AuthMethod
                 }
             }
     
+        } else {
+            $this->handleFailure($response);
         }
         
         return null;
