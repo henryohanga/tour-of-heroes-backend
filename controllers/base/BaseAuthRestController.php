@@ -5,7 +5,7 @@
 
 namespace app\controllers\base;
 
-use app\controllers\base\BaseRestController as Controller;
+use app\controllers\base\BaseRestController;
 use app\filters\auth\ApiUserAuth;
 
 /**
@@ -15,7 +15,7 @@ use app\filters\auth\ApiUserAuth;
  * @author Henry Ohanga <ohanga.henry@gmail.com>
  * @since 1.0
  */
-class BaseAuthRestController extends Controller
+class BaseAuthRestController extends BaseRestController
 {
     /**
      * @inheritdoc
@@ -41,6 +41,10 @@ class BaseAuthRestController extends Controller
         $behaviors['authenticator'] = $auth;
         // avoid authentication on CORS-pre-flight requests (HTTP OPTIONS method)
         $behaviors['authenticator']['except'] = ['options'];
+
+        $behaviors['rateLimiter']= [
+            'class' => \yii\filters\RateLimiter::className(),
+        ];
 
         return $behaviors;
     }

@@ -45,7 +45,11 @@ class ApiUserAuth extends AuthMethod
                 $identity = $user->loginByAccessToken($accessToken, get_class($this));
                 if (!is_null($identity)) {
                     return $identity;
+                } else {
+                    $this->handleFailure($response);
                 }
+            }else {
+                $this->handleFailure($response);
             }
     
         } else {

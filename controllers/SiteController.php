@@ -29,4 +29,12 @@ class SiteController extends BaseAuthRestController
             'message' => 'Hello World!',
         ];
     }
+
+    /**
+     * /site/user
+     */
+    public function actionUser()
+    {
+        return \Yii::$app->user->identity;
+    }
 }
