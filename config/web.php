@@ -27,8 +27,6 @@ $config = [
     ],
     'components' => [
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'BYbmZU4vYFR1xKmk5B7KVZUZKozK4qLL',
             // let the API accept input data in JSON format
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
@@ -88,9 +86,9 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'enableStrictParsing' => false,
+            'enableStrictParsing' => true,
             'rules' => [
-
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'hero'],
             ],
         ],
     ],

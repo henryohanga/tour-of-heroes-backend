@@ -3,11 +3,11 @@
 namespace app\controllers;
 
 use Yii;
-use app\controllers\base\BaseAuthRestController;
+use app\controllers\base\BaseRestController;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 
-class SiteController extends BaseAuthRestController
+class SiteController extends BaseRestController
 {
     /**
      *  Error handler action
@@ -28,13 +28,5 @@ class SiteController extends BaseAuthRestController
         return [
             'message' => 'Hello World!',
         ];
-    }
-
-    /**
-     * /site/user
-     */
-    public function actionUser()
-    {
-        return \Yii::$app->user->identity;
     }
 }

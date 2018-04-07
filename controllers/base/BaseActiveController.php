@@ -38,5 +38,12 @@ class BaseActiveController extends ActiveController
         return $behaviors;
     }
     
-    // public $modelClass = 'app\models\User';
+    /**
+     * {@inheritdoc}
+     */
+    public $serializer = [
+        'class' => 'yii\rest\Serializer',
+        'collectionEnvelope' => 'items',
+    ];
+
 }
