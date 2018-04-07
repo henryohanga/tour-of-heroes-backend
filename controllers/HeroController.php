@@ -6,6 +6,8 @@
 namespace app\controllers;
 
 use app\controllers\base\BaseActiveController;
+use app\models\Hero;
+
 /**
  * HeroController class handles API requests for the base route "/heroes"
  * 
@@ -17,4 +19,14 @@ class HeroController extends BaseActiveController
      * {@inheritdoc}
      */
     public $modelClass = 'app\models\Hero';
+
+    /**
+     * Action "search"
+     * 
+     * @return mixed|\yii\web\Response API response
+     */
+    public function actionSearch($name = '')
+    {
+        return Hero::find()->where(['like', 'name', $name])->all();
+    }
 }
