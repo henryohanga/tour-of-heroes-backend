@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => 'henry@particles.co.ke',
     'appKeys' => [
         // to be changed
         'A416B5698F45D93C583E9C51DBEB1',
