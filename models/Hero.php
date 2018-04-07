@@ -1,11 +1,13 @@
 <?php
 /**
  * @copyright Copyright (c) 2018 Code Particles
- * @link https://tour-of-heroes-backend.herokuapp.com
+ * @link https://tour-of-heroes-back-end.herokuapp.com
  */
 namespace app\models;
 
 use app\models\base\BaseActiveRecordModel;
+use yii\web\Link;
+use yii\helpers\Url;
 
 /**
  * Hero is the model class for the table "hero".
@@ -29,6 +31,17 @@ class Hero extends BaseActiveRecordModel
     {
         return [
             [['name'], 'required']
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLinks()
+    {
+        return [
+            Link::REL_SELF => Url::to(['hero/view', 'id' => $this->id], true),
+            'index' => Url::to(['hero/index'], true),
         ];
     }
 }
