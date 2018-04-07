@@ -27,6 +27,6 @@ class HeroController extends BaseActiveController
      */
     public function actionSearch($name = '')
     {
-        return Hero::find()->where(['like', 'name', $name]);
+        return Hero::find()->where(['like', 'name', $name])->all();
     }
 }
