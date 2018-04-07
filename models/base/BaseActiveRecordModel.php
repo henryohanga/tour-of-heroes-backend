@@ -6,9 +6,7 @@
 namespace app\models\base;
 
 use yii\db\ActiveRecord;
-use yii\web\Link; // represents a link object as defined in JSON Hypermedia API Language.
 use yii\web\Linkable;
-use yii\helpers\Url;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
 
@@ -17,7 +15,7 @@ use yii\behaviors\BlameableBehavior;
  * 
  * @author Henry Ohanga <ohanga.henry@gmail.com> 
  */
-class BaseActiveRecordModel extends ActiveRecord
+class BaseActiveRecordModel extends ActiveRecord implements Linkable
 {
     /**
      * @inheritdoc
@@ -29,4 +27,21 @@ class BaseActiveRecordModel extends ActiveRecord
             BlameableBehavior::className(),
         ];
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function fields()
+    {
+        $fields = parent::fields();
+
+        unset($fields['created_at'], $fields['created_by'], $fields['updated_at'], $fields['updated_by']);
+
+        return $fields;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLinks() {}
 }

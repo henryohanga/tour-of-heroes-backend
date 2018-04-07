@@ -1,7 +1,7 @@
 <?php
 /**
  * @copyright Copyright (c) 2018 Code Particles
- * @link https://tour-of-heroes-backend.herokuapp.com
+ * @link https://tour-of-heroes-back-end.herokuapp.com
  */
 namespace app\controllers;
 
