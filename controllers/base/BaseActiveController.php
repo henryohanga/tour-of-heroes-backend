@@ -28,6 +28,7 @@ class BaseActiveController extends ActiveController
         // add CORS filter
         $behaviors['corsFilter'] = [
             'class' => \yii\filters\Cors::className(),
+            
         ];
         
         // re-add authentication filter

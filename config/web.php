@@ -88,7 +88,11 @@ $config = [
             'showScriptName' => false,
             'enableStrictParsing' => true,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'hero'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'hero', 
+                    'extraPatterns' => [
+                        'GET search' => 'search',
+                    ],
+                ],
             ],
         ],
     ],
